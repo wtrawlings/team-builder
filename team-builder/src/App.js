@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import TeamMember from './components/TeamMember';
+
 
 function App() {
+  //const MemberForm = props => {
+    //console.log("this is our props?")
   const [teamMember, setTeamMember] = useState( {
     name: "",
     callSign: "",
@@ -30,7 +34,7 @@ function App() {
           Help Me Learn React!
         </a> */}
         <p>Here are the current Team Members:</p>
-        <p>{teamMember}</p>
+        
         <p>Join the Team - enter your information below!</p>
         <form>
           <label>Name: 
@@ -56,6 +60,8 @@ function App() {
             </label>
             <button type="submit">Join the Team!</button>
         </form>
+        <p>Current Team Members Post Under the submit button.</p>
+        <TeamMember />
     </div>
   );
 }
