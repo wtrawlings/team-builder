@@ -3,7 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const [teamMember, setTeamMember] = useState( [] );
+  const [teamMember, setTeamMember] = useState( {
+    name: "",
+    callSign: "",
+    email: ""
+  } );
+  const handleChanges = event => {
+    setTeamMember({ ...teamMember, [event.target.name]: event.target.value });
+    console.log(teamMember);
+  };
 
 
 
@@ -13,14 +21,14 @@ function App() {
         <p>
           Bionic6 Team Lister: Join the Team!
         </p>
-        <a
+        {/* <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
           Help Me Learn React!
-        </a>
+        </a> */}
         <p>Here are the current Team Members:</p>
         <p>{teamMember}</p>
         <p>Join the Team - enter your information below!</p>
@@ -46,7 +54,7 @@ function App() {
             value={teamMember.email}
             />
             </label>
-
+            <button type="submit">Join the Team!</button>
         </form>
     </div>
   );
