@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [teamMember, setTeamMember] = useState( [] );
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Bionic6 Team Lister: Join the Team!
         </p>
         <a
           className="App-link"
@@ -16,9 +19,35 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Help Me Learn React!
         </a>
-      </header>
+        <p>Here are the current Team Members:</p>
+        <p>{teamMember}</p>
+        <p>Join the Team - enter your information below!</p>
+        <form>
+          <label>Name: 
+            <input
+            type="text"
+            name="name"
+            value={teamMember.name}
+            />
+            </label>
+            <label>Call Sign: 
+            <input
+            type="text"
+            name="callSign"
+            value={teamMember.callSign}
+            />
+            </label>
+            <label>email: 
+            <input
+            type="text"
+            name="email"
+            value={teamMember.email}
+            />
+            </label>
+
+        </form>
     </div>
   );
 }
