@@ -1,6 +1,7 @@
 import React from "react";
 
 const TeamMember = props => {
+  console.log(props)
   return (
     <div>
       {props.teamMember.map(teamMember => (

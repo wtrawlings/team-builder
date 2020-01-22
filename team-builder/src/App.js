@@ -12,11 +12,22 @@ function App() {
     callSign: "",
     email: ""
   } );
+  //should this be an array of objects or defaulted to object?
   const handleChanges = event => {
     setTeamMember({ ...teamMember, [event.target.name]: event.target.value });
     console.log(teamMember);
   };
-
+  const submitHandler = event => {
+    event.preventDefault();
+    const newTeamMember = {
+      ...TeamMember,
+      id: Date.now()
+    };
+    props.addNewTeamMember(newTeamMember);
+    console.log(newTeamMember);
+    console.log(event.target.name);
+    setTeamMember({ name: "", callSign: "", email: "" });
+  };
 
 
   return (
@@ -25,14 +36,7 @@ function App() {
         <p>
           Bionic6 Team Lister: Join the Team!
         </p>
-        {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Help Me Learn React!
-        </a> */}
+        
         <p>Here are the current Team Members:</p>
         
         <p>Join the Team - enter your information below!</p>
@@ -58,12 +62,12 @@ function App() {
             value={teamMember.email}
             />
             </label>
-            <button type="submit">Join the Team!</button>
+            <button onClick={submitHandler} type="submit">Join the Team!</button>
         </form>
         <p>Current Team Members Post Under the submit button.</p>
         <TeamMember />
     </div>
   );
 }
-
+//}
 export default App;
