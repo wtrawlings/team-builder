@@ -7,14 +7,15 @@ import TeamMembers from './components/TeamMembers';
 function App() {
   //const MemberForm = props => {
     //console.log("this is our props?")
-  const [teamMember, setTeamMember] = useState( {
+  const [teamMember, setTeamMember] = useState( [{
     name: "",
     callSign: "",
     email: ""
-  } );
+  }] );
   //should this be an array of objects or defaulted to object?
   const handleChanges = event => {
     setTeamMember({ ...teamMember, [event.target.name]: event.target.value });
+    //console.log(event.target.value);
     //console.log(teamMember);
     //the above console log makes the updates show up as soon as you type something in (the console).
   };
@@ -22,7 +23,10 @@ function App() {
     event.preventDefault();//that stops the page refresh
     const newTeamMember = {
       ...teamMember,
-      id: Date.now()//this works as the unique key for the .map function
+      id: Date.now(),//this works as the unique key for the .map function
+      name: teamMember.name,
+      callSign: teamMember.callSign,
+      email: teamMember.email
     };
     //props.addNewTeamMember(newTeamMember);
     console.log(newTeamMember);
