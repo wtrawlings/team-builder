@@ -46,6 +46,7 @@ function App() {
             <input onChange={handleChanges}
             type="text"
             name="name"
+            id="name"
             placeholder="name"
             value={teamMember.name}
             />
@@ -54,6 +55,7 @@ function App() {
             <input onChange={handleChanges}
             type="text"
             name="callSign"
+            id="callSign"
             placeholder="callsign"
             value={teamMember.callSign}
             />
@@ -62,6 +64,7 @@ function App() {
             <input onChange={handleChanges}
             type="text"
             name="email"
+            id="email"
             placeholder="email"
             value={teamMember.email}
             />
