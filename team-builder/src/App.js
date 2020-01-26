@@ -16,7 +16,7 @@ function App() {
   const handleChanges = event => {
     setTeamMember({ ...teamMember, [event.target.name]: event.target.value });
     //console.log(teamMember);
-    //the above console log makes the updates show up as soon as you type something in.
+    //the above console log makes the updates show up as soon as you type something in (the console).
   };
   const submitHandler = event => {
     event.preventDefault();//that stops the page refresh
@@ -27,7 +27,7 @@ function App() {
     //props.addNewTeamMember(newTeamMember);
     console.log(newTeamMember);
     console.log(event.target.name);//this shows up empty
-    setTeamMember({ name: "", callSign: "", email: "" });
+    setTeamMember({ name: "", callSign: "", email: "" });//this resets the forms to blank
   };
 
 
@@ -42,24 +42,27 @@ function App() {
         
         <p>Join the Team - enter your information below!</p>
         <form>
-          <label>Name: 
+          <label htmlFor="name">Name: 
             <input onChange={handleChanges}
             type="text"
             name="name"
+            placeholder="name"
             value={teamMember.name}
             />
             </label>
-            <label>Call Sign: 
+            <label htmlFor="callSign">Call Sign: 
             <input onChange={handleChanges}
             type="text"
             name="callSign"
+            placeholder="callsign"
             value={teamMember.callSign}
             />
             </label>
-            <label>email: 
+            <label htmlFor="email">email: 
             <input onChange={handleChanges}
             type="text"
             name="email"
+            placeholder="email"
             value={teamMember.email}
             />
             </label>
