@@ -15,17 +15,18 @@ function App() {
   //should this be an array of objects or defaulted to object?
   const handleChanges = event => {
     setTeamMember({ ...teamMember, [event.target.name]: event.target.value });
-    console.log(teamMember);
+    //console.log(teamMember);
+    //the above console log makes the updates show up as soon as you type something in.
   };
   const submitHandler = event => {
-    event.preventDefault();
+    event.preventDefault();//that stops the page refresh
     const newTeamMember = {
       ...teamMember,
-      id: Date.now()
+      id: Date.now()//this works as the unique key for the .map function
     };
     //props.addNewTeamMember(newTeamMember);
     console.log(newTeamMember);
-    console.log(event.target.name);
+    console.log(event.target.name);//this shows up empty
     setTeamMember({ name: "", callSign: "", email: "" });
   };
 
