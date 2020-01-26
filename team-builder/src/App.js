@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import TeamMember from './components/TeamMember';
+import TeamMembers from './components/TeamMembers';
 
 
 function App() {
@@ -20,10 +20,10 @@ function App() {
   const submitHandler = event => {
     event.preventDefault();
     const newTeamMember = {
-      ...TeamMember,
+      ...teamMember,
       id: Date.now()
     };
-    props.addNewTeamMember(newTeamMember);
+    //props.addNewTeamMember(newTeamMember);
     console.log(newTeamMember);
     console.log(event.target.name);
     setTeamMember({ name: "", callSign: "", email: "" });
@@ -42,21 +42,21 @@ function App() {
         <p>Join the Team - enter your information below!</p>
         <form>
           <label>Name: 
-            <input
+            <input onChange={handleChanges}
             type="text"
             name="name"
             value={teamMember.name}
             />
             </label>
             <label>Call Sign: 
-            <input
+            <input onChange={handleChanges}
             type="text"
             name="callSign"
             value={teamMember.callSign}
             />
             </label>
             <label>email: 
-            <input
+            <input onChange={handleChanges}
             type="text"
             name="email"
             value={teamMember.email}
@@ -65,7 +65,7 @@ function App() {
             <button onClick={submitHandler} type="submit">Join the Team!</button>
         </form>
         <p>Current Team Members Post Under the submit button.</p>
-        <TeamMember />
+        <TeamMembers />
     </div>
   );
 }
