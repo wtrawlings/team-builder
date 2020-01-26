@@ -28,6 +28,7 @@ function App() {
       callSign: teamMember.callSign,
       email: teamMember.email
     };
+    setTeamMember([...teamMember, newTeamMember]);
     //props.addNewTeamMember(newTeamMember);
     console.log(newTeamMember);
     console.log(event.target.name);//this shows up empty
